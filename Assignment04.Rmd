@@ -1,0 +1,49 @@
+---
+title: "Assignment 04"
+author: "Jarvis Sanders"
+date: "9/15/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+Problem #1
+
+By graphing the data this way I am able to see that the sepal width data rises to a certain point and then decreases steadily after that with local peaks, but ultimately decreasing. 
+
+For sepal length, the data increases and decreases often. Multiple local peaks and lows. 
+
+```{r}
+library(ggplot2)
+library(dplyr)
+
+ggplot(data = iris) +
+  geom_bar(mapping = aes (x = Sepal.Length))
+
+ggplot(data = iris) +
+  geom_bar(mapping = aes (x = Sepal.Width))
+```
+
+
+Problem #2
+
+By adding the categorical variable species, I am able to take a closer look at each species of flower such as the sepal length and width in one graph. 
+
+```{r}
+ggplot(data = iris) +
+  geom_histogram(aes(x = Sepal.Length, fill = Species), binwidth = 1) +
+  labs(title = "Species", 
+       x = "Sepal Length",
+       y = "Sepal Width")
+```
+
+Problem #3
+
+By graphing the data this way, I will be able to see the relationship between the width of the sepal of virginica, as well as the count of each occurence. 
+
+```{r}
+ggplot(data = iris) +
+  geom_histogram(mapping = aes (x = Sepal.Width, fill = "virginica"), binwidth = 1)
+```
+
